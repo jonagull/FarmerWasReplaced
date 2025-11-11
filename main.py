@@ -1,10 +1,21 @@
 
+
 import h
 
 change_hat(Hats.Sunflower_Hat)
 top_pos = 21
 
-grid = [[None for _ in range(22)] for _ in range(22)]
+grid = []
+i = 0
+while i < 22:
+	row = []
+	j = 0
+	while j < 22:
+		row.append(None)
+		j += 1
+	grid.append(row)
+	i += 1
+	
 
 plantingOrder = [
 	Entities.Grass,
@@ -31,16 +42,15 @@ plantingOrder = [
 	Entities.Tree,
 ]
 
-getCompanion():
-    x = get_pos_x()
-    y = get_pos_y()
-    entity = grid[y][x]
+def getCompanion():
+	x = get_pos_x()
+	y = get_pos_y()
+	return grid[y][x]
 
 def handlePlanting(entity):
-    companion = getCompanion()
-    
-    if (companion is not None):
-        entity = companion
+	companion = getCompanion()
+	if companion != None:
+		entity = companion
 
 	if entity == Entities.Grass:
 		h.plantGrass()
@@ -55,11 +65,12 @@ def handlePlanting(entity):
 		plant(entity)
 
 def setCompanion(compInfo):
-    companion = compInfo[0]
-    x = compInfo[1]
-    y = compInfo[2]
+	#print(compInfo)
+	companion = compInfo[0]
+	x = compInfo[1][0]
+	y = compInfo[1][1]
 
-    grid[y][x] = companion
+	grid[y][x] = companion
 
 
 while True:
@@ -68,10 +79,9 @@ while True:
 	if (get_pos_x() < len(plantingOrder)):
 		entity = plantingOrder[get_pos_x()]
 
-
 	companion = get_companion()
-    if (companion is not None):
-        setCompanion(companion)
+	if (companion != None):
+		setCompanion(companion)
 
 	handlePlanting(entity)
 	move(North)
