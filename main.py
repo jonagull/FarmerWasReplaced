@@ -1,18 +1,9 @@
 import h
 top_pos = 15
 
-change_hat(Hats.Pumpkin_Hat)
+change_hat(Hats.Sunflower_Hat)
 
 while True:
-	
-	#if get_pos_x() == 1 :
-		#h.plantTree()
-		#move(North)
-		
-		#if get_pos_y() == top_pos:
-			#h.plantTree()
-			#h.moveToNext()
-			#
 	if get_pos_x() == 0:
 		h.plantGrass()
 		move(North)
@@ -20,8 +11,6 @@ while True:
 		if get_pos_y() == top_pos:
 			h.plantGrass()
 			h.moveToNext()
-			
-			
 			
 	elif get_pos_x() == 2 or get_pos_x() == 3 or get_pos_x() == 1:
 		h.plantCarrot()

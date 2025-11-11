@@ -1,10 +1,3 @@
-#move(South)
-
-#harvest()
-#till()
-#plant(Entities.Carrot)
-#move(North)
-
 def moveToNext():
 	move(East)
 	move(North)
@@ -32,8 +25,6 @@ def plantBush():
 def plantTree():
 	if can_harvest():
 		harvest()
-	#if (get_ground_type() == Grounds.Grassland):
-		#till()
 	plant(Entities.Tree)
 	use_item(Items.Water)
 	
