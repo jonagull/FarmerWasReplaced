@@ -1,59 +1,58 @@
+
 import h
-top_pos = 15
+top_pos = 21
+
 
 change_hat(Hats.Sunflower_Hat)
 
-while True:
-	if get_pos_x() == 0:
+plantingOrder = [
+	Entities.Grass,
+	Entities.Grass,
+	Entities.Grass,
+	Entities.Carrot,
+	Entities.Carrot,
+	Entities.Carrot,
+	Entities.Carrot,
+	Entities.Carrot,
+	Entities.Cactus,
+	Entities.Sunflower,
+	Entities.Sunflower,
+	Entities.Sunflower,
+	Entities.Tree,
+	Entities.Tree,
+	Entities.Tree,
+]
+
+def handlePlanting(entity):
+	if entity == Entities.Grass:
 		h.plantGrass()
-		move(North)
-
-		if get_pos_y() == top_pos:
-			h.plantGrass()
-			h.moveToNext()
-			
-	elif get_pos_x() == 2 or get_pos_x() == 3 or get_pos_x() == 1:
-		h.plantCarrot()
-		move(North)
-		
-		if get_pos_y() == top_pos:
-			h.plantCarrot()
-			h.moveToNext()
-			
-	elif  get_pos_x() == 4:
+	elif entity == Entities.Cactus:
 		h.plantCactus()
-		move(North)
-		
-		if get_pos_y() == top_pos:
-			h.plantCactus()
-			h.moveToNext()
-		
-			
-	elif get_pos_x() == 5:
-		h.plantSunflower()
-		move(North)
-
-		if get_pos_y() == top_pos:
-			h.plantSunflower()
-			h.moveToNext()
-			
-	elif get_pos_x() == 6 or get_pos_x() == 1:
+	elif entity == Entities.Tree:
 		h.plantTree()
-		move(North)
-
-		if get_pos_y() == top_pos:
-			h.plantTree()
-			h.moveToNext()
-			
 	else:
-		h.plantPumpkin()
-		move(North)
+		harvest()
+		if get_ground_type() == Grounds.Grassland:
+			till()
+		plant(entity)
 
-		if get_pos_y() == top_pos:
-			h.plantPumpkin()
-			h.moveToNext()
-			
+while True:
+	entity = Entities.Pumpkin
+
+	if (get_pos_x() < len(plantingOrder)):
+		entity = plantingOrder[get_pos_x()]
+
+	handlePlanting(entity)
+	move(North)
+
+	if get_pos_y() == top_pos:
+		move(East)
+		#h.moveToNext()
+
+
+	
 				
 	
+		
 		
 		

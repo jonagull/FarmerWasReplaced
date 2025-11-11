@@ -21,7 +21,6 @@ def plantBush():
 		till()
 	plant(Entities.Bush)
 	
-	
 def plantTree():
 	if can_harvest():
 		harvest()
