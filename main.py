@@ -5,14 +5,22 @@ top_pos = 21
 
 change_hat(Hats.Sunflower_Hat)
 
+
 plantingOrder = [
 	Entities.Grass,
 	Entities.Grass,
 	Entities.Grass,
-	Entities.Carrot,
-	Entities.Carrot,
-	Entities.Carrot,
-	Entities.Carrot,
+	Entities.Grass,
+	Entities.Grass,
+	Entities.Grass,
+	Entities.Tree,
+	Entities.Tree,
+	Entities.Tree,
+	Entities.Tree,
+	Entities.Tree,
+	Entities.Tree,
+	Entities.Tree,
+	Entities.Tree,
 	Entities.Carrot,
 	Entities.Cactus,
 	Entities.Sunflower,
